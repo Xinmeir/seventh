@@ -6,28 +6,28 @@
     <title>Document</title>
     <style>
     .navbar a{
-        font-size: 20px;
-        color:aqua;
-        text-decoration: none;
-        transition: color 0.3s; /* 添加过渡效果 */
+        font-size: 20px;         /* 设置导航栏链接的字体大小为20像素 */
+        color:aqua;               /* 设置链接的颜色为浅蓝色 */     
+        text-decoration: none;          /* 去除链接的下划线 */
+        transition: color 0.3s; /* 添加过渡效果,持续时间0.3s */
     }
     .navbar a:hover {
             color: #fff; /* 鼠标悬停时改变颜色 */
         }
     .hover-image {
-            display: none; /* 默认隐藏图片 */
-            position: absolute; /* 绝对定位 */
-            top: 100%; /* 位于链接下方 */
-            left: 10%; /* 水平居中 */
-            transform: translateX(-50%) translateY(-10px); /* 初始状态向上偏移 */
-            transition: transform 0.3s, opacity 0.3s; /* 添加过渡效果 */
+            display: none; /* 默认情况下隐藏悬停显示的图片 */
+            position: absolute; /* 使用绝对定位，以便相对于其最近的已定位祖先元素进行定位 */
+            top: 100%; /* 图片顶部位于其祖先元素底部的100%位置，即刚好在下方 */
+            left: 10%; /* 图片水平位置距离左侧10% */
+            transform: translateX(-50%) translateY(-10px); /* 初始时图片水平居中并向上偏移10像素 */
+            transition: transform 0.3s, opacity 0.3s; /* 定义变换和透明度的过渡效果，持续时间0.3秒 */
             opacity: 0; /* 初始透明度 */
             z-index: 10; /* 确保在其他内容之上 */
         }
         .link-hover:hover + .hover-image {
-            display: block; /* 悬停时显示图片 */
-            transform: translateX(-50%) translateY(0); /* 恢复到原位 */
-            opacity: 1; /* 最终透明度为1 */
+            display: block; /* 当链接被悬停时，显示图片 */
+            transform: translateX(-50%) translateY(0); /* 图片恢复到水平居中的位置，不再偏移 */
+            opacity: 1;  /* 图片透明度变为1，完全可见 */
         }
 
         .box {
@@ -319,26 +319,21 @@
 <script>
     // 获取 class 为 'box10' 的主容器
     const box10 = document.querySelector('.box10');
-
     // 获取提示框（span 元素）
     const tooltip10 = box10.querySelector('span');
-
     // 监听鼠标移入事件，显示提示框
     box10.addEventListener('mouseenter', () => {
         tooltip10.style.display = 'block'; // 显示提示框
-    });
-
+});
     // 监听鼠标移出事件，隐藏提示框
     box10.addEventListener('mouseleave', () => {
         tooltip10.style.display = 'none'; // 隐藏提示框
     });
-
     // 获取按钮，并添加点击事件
     const button = box10.querySelector('button');
     button.addEventListener('click', () => {
         // 获取提示框中的数字内容
         const textToCopy = tooltip10.textContent;
-
         // 复制内容到剪贴板
         navigator.clipboard.writeText(textToCopy)
             .then(() => {
